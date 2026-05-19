@@ -1,0 +1,42 @@
+name: Security Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sast-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install security tools
+        run: |
+          pip install bandit pip-audit
+      - name: Run Bandit
+        run: |
+          bandit -r jour-4/lab/sample-python-app/src -f json -o bandit-report.json || true
+      - name: Run pip-audit
+        run: |
+          pip-audit -r jour-4/lab/sample-python-app/requirements.txt || true
+
+  sast-js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        working-directory: jour-4/lab/sample-js-app
+        run: npm install
+      - name: Run ESLint Security
+        working-directory: jour-4/lab/sample-js-app
+        run: npm run lint || true
+      - name: npm audit
+        working-directory: jour-4/lab/sample-js-app
+        run: npm audit || true

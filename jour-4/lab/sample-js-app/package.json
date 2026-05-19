@@ -1,0 +1,17 @@
+{
+  "name": "m1secua-jour4-js-app",
+  "version": "1.0.0",
+  "description": "Application JS volontairement vulnérable pour SAST",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-security": "^1.7.1"
+  }
+}

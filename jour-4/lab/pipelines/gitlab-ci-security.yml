@@ -1,0 +1,23 @@
+stages:
+  - security
+
+bandit:
+  stage: security
+  image: python:3.11
+  script:
+    - pip install bandit pip-audit
+    - bandit -r jour-4/lab/sample-python-app/src -f json -o bandit-report.json || true
+    - pip-audit -r jour-4/lab/sample-python-app/requirements.txt || true
+  artifacts:
+    when: always
+    paths:
+      - bandit-report.json
+
+eslint:
+  stage: security
+  image: node:20
+  script:
+    - cd jour-4/lab/sample-js-app
+    - npm install
+    - npm run lint || true
+    - npm audit || true
