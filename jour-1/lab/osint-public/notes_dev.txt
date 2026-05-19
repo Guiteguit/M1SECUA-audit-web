@@ -1,0 +1,8 @@
+# Notes développeur - environnement de test
+Application principale : http://dvwa.target.local:8081
+Ancienne URL admin : http://admin.target.local/login
+Swagger API : http://api.target.local/swagger-ui/
+Comptes de test :
+admin / password
+test / test123
+TODO : désactiver erreurs PHP, masquer version Apache, supprimer docs anciennes, vérifier cookies, passer DVWA security level de low vers medium/high

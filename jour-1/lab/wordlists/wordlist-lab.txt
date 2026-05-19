@@ -1,0 +1,10 @@
+login.php
+security.php
+setup.php
+phpinfo.php
+admin.php
+debug.php
+test.php
+vulnerabilities
+robots.txt
+server-status

@@ -1,0 +1,14 @@
+# DNS simulé target.local
+target.local. A 127.0.0.1
+www.target.local. A 127.0.0.1
+dvwa.target.local. A 127.0.0.1
+docs.target.local. A 127.0.0.1
+admin.target.local. A 127.0.0.1
+api.target.local. A 127.0.0.1
+staging.target.local. A 127.0.0.1
+jenkins.target.local. A 127.0.0.1
+grafana.target.local. A 127.0.0.1
+dev.target.local. A 127.0.0.1
+MX : target.local. MX 10 mail.target.local
+TXT : target.local. TXT "v=spf1 mx -all"
+TXT : _dmarc.target.local. TXT "v=DMARC1; p=none; rua=mailto:dmarc@target.local"

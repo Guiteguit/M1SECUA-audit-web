@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Student outputs
+livrables/
+*.zip
+*.pdf
+*.docx
+*.xlsx
+
+# Runtime
+*.log
+.env
+.env.*
+__pycache__/
+node_modules/
+
+# Do not commit secrets
+*.key
+*.pem
+*.crt

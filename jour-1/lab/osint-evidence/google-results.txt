@@ -1,0 +1,21 @@
+# Résultats Google simulés pour target.local
+Recherche : site:target.local
+- http://www.target.local/
+- http://dvwa.target.local:8081/
+- http://docs.target.local:8082/
+- http://admin.target.local/login
+- http://staging.target.local/test/
+- http://api.target.local/v1/users
+- http://api.target.local/v1/orders
+Recherche : site:target.local filetype:txt
+- http://docs.target.local:8082/notes_dev.txt
+- http://docs.target.local:8082/architecture_web.txt
+- http://docs.target.local:8082/procedure_admin.txt
+Recherche : site:target.local intitle:admin
+- http://admin.target.local/login
+- http://admin.target.local/admin.php
+Recherche : site:target.local "password"
+- http://docs.target.local:8082/notes_dev.txt
+- http://docs.target.local:8082/procedure_admin.txt
+Recherche : site:target.local "swagger"
+- http://api.target.local/swagger-ui/

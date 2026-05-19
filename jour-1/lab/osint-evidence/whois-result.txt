@@ -1,0 +1,11 @@
+# WHOIS simulé target.local
+Domain Name: TARGET.LOCAL
+Organization: Target Corp Lab
+Registrant Name: Admin Target
+Registrant Email: admin@target.local
+Tech Contact: jdupont@target.local
+Name Server: ns1.target.local
+Name Server: ns2.target.local
+Creation Date: 2021-04-12
+Updated Date: 2025-03-18
+Registrar: Local Lab Registrar

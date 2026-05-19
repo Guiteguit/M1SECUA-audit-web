@@ -1,0 +1,5 @@
+# Procédure d'administration - Document à ne pas exposer
+URL application : http://dvwa.target.local:8081
+Première connexion : admin / password
+Après connexion : DVWA Security -> Low, puis SQL Injection et XSS Reflected
+Contact : jdupont@target.local, admin-rh@target.local

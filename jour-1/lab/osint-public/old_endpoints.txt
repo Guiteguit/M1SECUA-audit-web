@@ -1,0 +1,6 @@
+# Anciens endpoints applicatifs
+http://dvwa.target.local:8081/admin.php
+http://dvwa.target.local:8081/debug.php
+http://dvwa.target.local:8081/test.php
+http://dvwa.target.local:8081/phpinfo.php
+Endpoints sensibles historiques : /vulnerabilities/sqli/ /vulnerabilities/xss_r/ /vulnerabilities/xss_s/ /vulnerabilities/csrf/ /vulnerabilities/upload/ /vulnerabilities/exec/

@@ -1,0 +1,5 @@
+# Résultats simulés crt.sh pour target.local
+Certificat 1 : CN=www.target.local SAN=www.target.local,dvwa.target.local,docs.target.local
+Certificat 2 : CN=*.target.local SAN=admin.target.local,api.target.local,staging.target.local
+Certificat 3 : CN=internal.target.local SAN=jenkins.target.local,grafana.target.local,dev.target.local
+Sous-domaines découverts : www.target.local, dvwa.target.local, docs.target.local, admin.target.local, api.target.local, staging.target.local, jenkins.target.local, grafana.target.local, dev.target.local, internal.target.local

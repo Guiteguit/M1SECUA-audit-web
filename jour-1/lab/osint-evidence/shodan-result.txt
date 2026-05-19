@@ -1,0 +1,7 @@
+# Résultat Shodan simulé pour target.local
+Host: dvwa.target.local
+IP: 127.0.0.1
+Ports: 80/tcp HTTP, 8081/tcp HTTP
+Detected technologies: Apache/2.4.49, PHP/7.4.3, OpenSSL/1.1.1
+HTTP headers: Server: Apache/2.4.49, X-Powered-By: PHP/7.4.3, Set-Cookie: PHPSESSID=abc123
+Potential observations: version exposée, cookie session PHP visible, application vulnérable/non durcie

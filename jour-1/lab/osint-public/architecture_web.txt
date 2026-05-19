@@ -1,0 +1,14 @@
+# Architecture applicative - Document interne
+Flux applicatif : Utilisateur -> Reverse Proxy Nginx -> Apache/PHP -> MariaDB
+Applications :
+- DVWA application principale
+- /login.php authentification
+- /security.php niveau de sécurité
+- /vulnerabilities/sqli/ SQL Injection
+- /vulnerabilities/xss_r/ XSS reflected
+- /vulnerabilities/xss_s/ XSS stored
+- /vulnerabilities/csrf/ CSRF
+- /vulnerabilities/upload/ upload fichier
+- /vulnerabilities/brute/ brute force
+- /vulnerabilities/exec/ command injection
+- /vulnerabilities/fi/ file inclusion
