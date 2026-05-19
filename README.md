@@ -1,77 +1,287 @@
 # M1SECUA — Sécurité Web Avancée et Audit
 
-Dépôt pédagogique pour le module **Sécurité Web Avancée et Audit**.
+Dépôt pédagogique du module **Sécurité Web Avancée et Audit — Master 1**.
 
-## Objectif du dépôt
+Ce dépôt contient les supports étudiants, les laboratoires techniques, les scripts de démarrage et les templates de livrables pour un cours intensif de 5 jours autour de l’audit de sécurité applicative.
 
-Ce dépôt contient les supports de TP et le laboratoire technique pour le **Jour 1 — Méthodologies d'audit et reconnaissance**.
+---
+
+## Objectif du module
+
+L’objectif du module est de former les étudiants à une démarche complète d’audit applicatif :
+
+```text
+Cadrage → Reconnaissance → Exploitation contrôlée → Authentification / Autorisation
+→ Automatisation / Code Review → Rapport d’audit → Remédiation
+```
+
+Le fil rouge consiste à auditer des applications vulnérables dans un environnement de laboratoire légal et contrôlé.
+
+---
+
+## Programme des 5 jours
+
+| Jour | Thème | Objectifs principaux |
+|---|---|---|
+| Jour 1 | Méthodologies d’audit et reconnaissance | OWASP WSTG, NIST SP 800-115, OSINT simulé, reconnaissance active contrôlée, Burp Suite, mapping applicatif |
+| Jour 2 | Vulnérabilités avancées et exploitation | SQL Injection, XSS, XXE, SSRF, désérialisation non sécurisée |
+| Jour 3 | Authentification et autorisation | Brute-force, sessions, CSRF, IDOR, privilege escalation, OAuth 2.0 / OIDC, JWT |
+| Jour 4 | Audit automatisé et Code Review | SAST, SonarQube, Bandit, ESLint Security, code review manuelle, DevSecOps CI/CD |
+| Jour 5 | Rapport d’audit et remédiation | Executive Summary, findings techniques, CVSS, plan de remédiation, secure coding, restitution orale |
+
+---
 
 ## Cadre légal
 
 Les manipulations sont strictement limitées aux environnements de laboratoire fournis dans ce dépôt.
 
-Cibles autorisées pour le Jour 1 :
+Les étudiants ne doivent jamais utiliser les techniques, outils ou payloads sur :
 
-- `http://dvwa.target.local:8081`
-- `http://docs.target.local:8082`
-- `127.0.0.1`
-- `target.local` et ses sous-domaines locaux
+- des sites publics ;
+- des adresses IP externes ;
+- le réseau de l’école ;
+- la machine d’un autre étudiant ;
+- des applications réelles non explicitement autorisées ;
+- des API ou services cloud non prévus dans le TP.
 
-Interdictions :
+Chaque journée précise son propre périmètre autorisé.
 
-- scanner ou tester un site public ;
-- scanner le réseau de l'école ;
-- scanner la machine d'un autre étudiant ;
-- utiliser Burp, Nmap, ffuf, Nikto ou tout autre outil offensif hors du périmètre autorisé ;
-- publier des résultats ou captures contenant des informations personnelles.
+Règle simple :
 
-## Démarrage rapide Jour 1
+```text
+Je teste uniquement ce qui est explicitement autorisé dans le TP.
+```
+
+---
+
+## Organisation du dépôt
+
+```text
+M1SECUA-audit-web/
+├── README.md
+├── jour-1/
+│   ├── README.md
+│   ├── support-etudiant/
+│   ├── lab/
+│   └── livrables-templates/
+├── jour-2/
+│   ├── README.md
+│   ├── support-etudiant/
+│   ├── lab/
+│   └── livrables-templates/
+├── jour-3/
+│   ├── README.md
+│   ├── support-etudiant/
+│   ├── lab/
+│   └── livrables-templates/
+├── jour-4/
+│   ├── README.md
+│   ├── support-etudiant/
+│   ├── lab/
+│   └── livrables-templates/
+└── jour-5/
+    ├── README.md
+    ├── support-etudiant/
+    ├── lab/
+    └── livrables-templates/
+```
+
+---
+
+## Prérequis étudiants
+
+Chaque étudiant doit disposer de :
+
+- Kali Linux ou une VM Linux compatible ;
+- Docker ;
+- Docker Compose ;
+- Burp Suite Community ou Professional ;
+- Firefox ou Chromium ;
+- Git ;
+- accès au dépôt GitHub.
+
+Les scripts de chaque journée installent les outils nécessaires autant que possible.
+
+---
+
+## Installation initiale
+
+Cloner le dépôt :
 
 ```bash
 git clone https://github.com/<ORG_OU_USER>/M1SECUA-audit-web.git
-cd M1SECUA-audit-web/jour-1/lab
+cd M1SECUA-audit-web
+```
+
+Remplacer `<ORG_OU_USER>` par l’organisation ou le compte GitHub utilisé par l’école ou le formateur.
+
+---
+
+## Démarrage rapide par journée
+
+### Jour 1 — Méthodologies et reconnaissance
+
+```bash
+cd jour-1/lab
 chmod +x setup-kali.sh check-lab.sh
 ./setup-kali.sh
 docker compose up -d
 ./check-lab.sh
 ```
 
-Puis suivre les TP dans l'ordre :
-
-1. `jour-1/support-etudiant/TP0-preparation-lab.md`
-2. `jour-1/support-etudiant/TP1-reconnaissance-passive-locale.md`
-3. `jour-1/support-etudiant/TP2-reconnaissance-active-controlee.md`
-4. `jour-1/support-etudiant/TP3-configuration-burp.md`
-5. `jour-1/support-etudiant/TP4-mapping-dvwa.md`
-6. `jour-1/support-etudiant/TP5-fingerprinting.md`
-7. `jour-1/support-etudiant/TP6-synthese-jour1.md`
-
-## Rendu attendu
-
-Chaque étudiant ou binôme rend un fichier :
+Supports :
 
 ```text
-livrables-jour1-NOM-PRENOM.zip
+jour-1/support-etudiant/
 ```
 
-Contenant :
+---
+
+### Jour 2 — Vulnérabilités avancées
+
+```bash
+cd jour-2/lab
+chmod +x setup-kali.sh check-lab.sh reset-lab.sh
+./setup-kali.sh
+docker compose up -d --build
+./check-lab.sh
+```
+
+Supports :
 
 ```text
-livrables/
-├── 00-validation-lab.md
-├── 01-reconnaissance-passive.md
-├── 02-reconnaissance-active.md
-├── 03-configuration-burp.md
-├── 04-mapping-dvwa.md
-├── 05-fingerprinting.md
-└── 06-synthese-jour1.md
+jour-2/support-etudiant/
 ```
 
-## Organisation
+---
+
+### Jour 3 — Authentification et autorisation
+
+```bash
+cd jour-3/lab
+chmod +x setup-kali.sh check-lab.sh reset-lab.sh
+./setup-kali.sh
+docker compose up -d --build
+./check-lab.sh
+```
+
+Supports :
 
 ```text
-jour-1/
-├── support-etudiant/       # Consignes TP à distribuer
-├── lab/                    # Docker Compose, scripts, données OSINT simulées
-└── livrables-templates/    # Modèles de rendu étudiant
+jour-3/support-etudiant/
 ```
+
+---
+
+### Jour 4 — Audit automatisé et Code Review
+
+```bash
+cd jour-4/lab
+chmod +x setup-kali.sh check-lab.sh reset-lab.sh
+./setup-kali.sh
+docker compose up -d --build
+./check-lab.sh
+```
+
+Supports :
+
+```text
+jour-4/support-etudiant/
+```
+
+---
+
+### Jour 5 — Rapport d’audit et remédiation
+
+```bash
+cd jour-5/lab
+chmod +x scripts/*.sh
+./scripts/check-tools.sh
+./scripts/init-report.sh
+```
+
+Supports :
+
+```text
+jour-5/support-etudiant/
+```
+
+---
+
+## Rendus attendus
+
+Chaque journée produit une archive de livrables.
+
+| Jour | Archive attendue |
+|---|---|
+| Jour 1 | `livrables-jour1-NOM-PRENOM.zip` |
+| Jour 2 | `livrables-jour2-NOM-PRENOM.zip` |
+| Jour 3 | `livrables-jour3-NOM-PRENOM.zip` |
+| Jour 4 | `livrables-jour4-NOM-PRENOM.zip` |
+| Jour 5 | `livrables-jour5-NOM-PRENOM.zip` |
+
+Les livrables sont généralement produits dans :
+
+```text
+jour-X/lab/livrables/
+```
+
+---
+
+## Méthode de travail recommandée
+
+Pour chaque TP :
+
+1. lire le support étudiant ;
+2. respecter le périmètre autorisé ;
+3. exécuter les commandes demandées ;
+4. observer les résultats ;
+5. documenter les preuves ;
+6. expliquer l’impact ;
+7. proposer une remédiation ;
+8. compléter le livrable associé.
+
+Le but n’est pas uniquement d’obtenir un résultat technique, mais de comprendre et documenter la démarche d’audit.
+
+---
+
+## Bonnes pratiques de sécurité
+
+Ne jamais pousser dans GitHub :
+
+- des vrais mots de passe ;
+- des tokens ;
+- des clés privées ;
+- des captures contenant des données personnelles ;
+- des rapports contenant des informations réelles non anonymisées.
+
+Les secrets utilisés dans les TP sont fictifs et uniquement destinés au laboratoire pédagogique.
+
+---
+
+## Philosophie du module
+
+Un bon auditeur ne se limite pas à exécuter des outils.
+
+Il doit savoir :
+
+```text
+comprendre le périmètre,
+identifier les surfaces d’attaque,
+tester de manière contrôlée,
+documenter les preuves,
+évaluer le risque,
+prioriser les corrections,
+communiquer clairement avec les parties prenantes.
+```
+
+L’exploitation technique est importante, mais la capacité à expliquer, prioriser et remédier l’est tout autant.
+
+---
+
+## Avertissement
+
+Ce dépôt est fourni uniquement à des fins pédagogiques.
+
+Les techniques présentées doivent être utilisées exclusivement dans les environnements de laboratoire autorisés.
+Toute utilisation sur un système tiers sans autorisation explicite est interdite.
