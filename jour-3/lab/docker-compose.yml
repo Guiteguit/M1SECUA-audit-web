@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: j3-dvwa
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+  webgoat:
+    image: webgoat/webgoat
+    container_name: j3-webgoat
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: j3-juice-shop
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  auth-api:
+    build: ./auth-api
+    container_name: j3-auth-api
+    ports:
+      - "5001:5001"
+    restart: unless-stopped
