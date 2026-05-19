@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo "[+] Installation des paquets utiles pour le Jour 1"
 sudo apt update
-sudo apt install -y docker.io docker-compose-plugin curl whatweb nmap ffuf nikto git nano tree zip
+sudo apt install -y docker.io curl whatweb nmap ffuf nikto git nano tree zip
 
 echo "[+] Activation de Docker"
 sudo systemctl enable docker

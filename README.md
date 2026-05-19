@@ -72,11 +72,6 @@ livrables/
 ```text
 jour-1/
 ├── support-etudiant/       # Consignes TP à distribuer
-├── support-professeur/     # Correction, barème et guide animation
 ├── lab/                    # Docker Compose, scripts, données OSINT simulées
 └── livrables-templates/    # Modèles de rendu étudiant
 ```
-
-## Note professeur
-
-Pour un dépôt public, il est recommandé de ne publier que les supports étudiants et le lab. Les corrections détaillées peuvent rester dans un dépôt privé séparé.
