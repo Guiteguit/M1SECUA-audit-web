@@ -5,7 +5,7 @@ Comprendre qu’une SSRF force le serveur à faire une requête.
 
 Tester :
 ```bash
-curl "http://vulnapi.target.local:5000/download?url=http://internal.target.local:8088"
+curl "http://vulnapi.target.local:5000/download?url=http://internal-admin"
 curl "http://vulnapi.target.local:5000/download?url=http://127.0.0.1:5000/health"
 ```
 
