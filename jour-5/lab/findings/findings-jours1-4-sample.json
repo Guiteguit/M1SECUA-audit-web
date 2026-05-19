@@ -1,0 +1,72 @@
+[
+  {
+    "id": "J2-01",
+    "title": "SQL Injection dans DVWA /vulnerabilities/sqli/",
+    "severity": "Critical",
+    "cvss": "9.1",
+    "endpoint": "/vulnerabilities/sqli/",
+    "parameter": "id",
+    "category": "Injection",
+    "cwe": "CWE-89",
+    "description": "Le paramètre id est concaténé dans une requête SQL sans requête préparée.",
+    "impact": "Extraction ou modification potentielle des données en base.",
+    "evidence": "Payload contrôlé : 1' OR '1'='1",
+    "remediation": "Utiliser des requêtes préparées et valider les entrées."
+  },
+  {
+    "id": "J2-02",
+    "title": "XSS Reflected dans DVWA /vulnerabilities/xss_r/",
+    "severity": "High",
+    "cvss": "7.1",
+    "endpoint": "/vulnerabilities/xss_r/",
+    "parameter": "name",
+    "category": "XSS",
+    "cwe": "CWE-79",
+    "description": "Le paramètre name est reflété dans la réponse HTML sans encodage de sortie.",
+    "impact": "Exécution de JavaScript dans le navigateur d’un utilisateur.",
+    "evidence": "Payload contrôlé : <img src=x onerror=alert(1)>",
+    "remediation": "Encoder la sortie HTML et éviter innerHTML pour les entrées utilisateur."
+  },
+  {
+    "id": "J3-01",
+    "title": "IDOR sur l’endpoint /api/users/{id}/profile",
+    "severity": "High",
+    "cvss": "8.1",
+    "endpoint": "/api/users/{id}/profile",
+    "parameter": "id",
+    "category": "Broken Access Control",
+    "cwe": "CWE-639",
+    "description": "Un utilisateur peut accéder au profil d’un autre utilisateur en modifiant l’identifiant dans l’URL.",
+    "impact": "Exposition de données utilisateur et violation de confidentialité.",
+    "evidence": "alice peut consulter /api/users/2/profile et /api/users/3/profile",
+    "remediation": "Vérifier côté serveur que l’utilisateur connecté est autorisé à accéder à la ressource demandée."
+  },
+  {
+    "id": "J3-02",
+    "title": "JWT alg=none accepté par le serveur",
+    "severity": "Critical",
+    "cvss": "9.8",
+    "endpoint": "/api/jwt/admin",
+    "parameter": "Authorization",
+    "category": "Authentication",
+    "cwe": "CWE-347",
+    "description": "Le serveur accepte un JWT dont l’algorithme de signature est none.",
+    "impact": "Élévation de privilèges vers un rôle administrateur.",
+    "evidence": "JWT modifié avec role=admin accepté.",
+    "remediation": "Refuser alg=none, imposer l’algorithme attendu et vérifier signature, expiration, issuer et audience."
+  },
+  {
+    "id": "J4-01",
+    "title": "Secret hardcodé dans le code source",
+    "severity": "Medium",
+    "cvss": "6.5",
+    "endpoint": "sample-python-app/src/config.py",
+    "parameter": "SECRET_KEY",
+    "category": "Secrets Management",
+    "cwe": "CWE-798",
+    "description": "Un secret applicatif est stocké en clair dans le code source.",
+    "impact": "Compromission possible si le dépôt est exposé.",
+    "evidence": "SECRET_KEY = dev-secret-key",
+    "remediation": "Utiliser un coffre de secrets ou des variables d’environnement protégées."
+  }
+]
