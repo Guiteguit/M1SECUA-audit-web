@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: j2-dvwa
+    ports: ["8081:80"]
+    restart: unless-stopped
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: j2-juice-shop
+    ports: ["3000:3000"]
+    restart: unless-stopped
+  webgoat:
+    image: webgoat/webgoat
+    container_name: j2-webgoat
+    ports: ["8080:8080"]
+    restart: unless-stopped
+  internal-admin:
+    image: nginx:alpine
+    container_name: j2-internal-admin
+    ports: ["8088:80"]
+    volumes:
+      - ./internal-admin:/usr/share/nginx/html:ro
+    restart: unless-stopped
+  vuln-api:
+    build: ./vuln-api
+    container_name: j2-vuln-api
+    ports: ["5000:5000"]
+    restart: unless-stopped
