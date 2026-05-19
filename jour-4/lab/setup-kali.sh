@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo "[+] Installation des outils Jour 4"
 sudo apt update
-sudo apt install -y docker.io docker-compose-plugin curl jq python3 python3-pip python3-venv git nano tree nodejs npm
+sudo apt install -y docker.io curl jq python3 python3-pip python3-venv git nano tree nodejs npm
 
 echo "[+] Installation de Bandit et pip-audit dans un venv local"
 python3 -m venv .venv-security

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 sudo apt update
-sudo apt install -y docker.io docker-compose-plugin curl nmap ffuf nikto whatweb jq python3 python3-pip git nano tree
+sudo apt install -y docker.io curl nmap ffuf nikto whatweb jq python3 python3-pip git nano tree
 sudo systemctl enable docker
 sudo systemctl start docker
 if ! groups "$USER" | grep -q docker; then

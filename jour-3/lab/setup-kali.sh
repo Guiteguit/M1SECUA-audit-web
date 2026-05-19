@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo "[+] Installation des outils Jour 3"
 sudo apt update
-sudo apt install -y docker.io docker-compose-plugin curl jq python3 python3-pip git nano tree
+sudo apt install -y docker.io curl jq python3 python3-pip git nano tree
 
 echo "[+] Activation Docker"
 sudo systemctl enable docker
